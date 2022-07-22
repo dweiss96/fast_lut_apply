@@ -8,6 +8,7 @@ import (
      "flag"
 		 "strings"
 		 "os/exec"
+		 "path/filepath"
 
 		 "github.com/manifoldco/promptui"
 )
@@ -44,6 +45,7 @@ func applyLut(lut string, inputFile string, outputName string) {
 
 func main() {
 	lutDirPtr := flag.String("l", ".", "LUT Directory")
+	lutFilePtr := flag.String("s", "", "single LUT File")
 	filePtr := flag.String("f", "video.mp4", "Video Input File")
 	allLutsPtr := flag.Bool("a", false, "Create Video with all LUTs")
 	flag.Parse()
@@ -56,6 +58,11 @@ func main() {
 	}
 
 	options := FilterForCubeExtension(MapToNames(files))
+
+	if(*lutFilePtr != "") {
+		applyLut(*lutFilePtr, *filePtr, filepath.Base(*lutFilePtr) + "_" + *filePtr)
+		return
+	}
 
 	if(*allLutsPtr) {
 		for _, file := range options {
