@@ -1,9 +1,13 @@
 # Simple LUT Apply Script
 
 ## Description
+
 This small CLI Tool uses ffmpeg to apply a LUT as video filter on a supported video. The main idea comes from the need to apply a "default" LUT on a 10 Bit video file created by DJI Drones to have a fast check if the camera settings are good enough.
 
 ## Usage
+
+You need to have `ffmpeg` available in your path. Check with `ffmpeg -version`.
+
 The compile tool can be used in multiple ways
 
 - apply one specific LUT
@@ -19,8 +23,10 @@ The parameter `-s` overwrites `-a and -l`.
 
 ## Build it yourself
 
-`go mod tidy`
-`go build -o lut_apply`
+```
+go mod tidy
+go build -o lut_apply
+```
 
 ### Build Script
 
