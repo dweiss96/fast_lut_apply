@@ -1,0 +1,12 @@
+# LUT files for development
+assets
+
+# build script output directory
+dist
+
+# IDE stuff
+.vscode
+.idea
+
+# Mac stuff
+.DS_Store
